@@ -4,6 +4,9 @@
  */
 package Archivos;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ESTUDIANTE
@@ -29,13 +32,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         panelContenedor = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        PanelImagen = new javax.swing.JPanel();
         btnImagen = new javax.swing.JButton();
         lGJPanelImagen1 = new components.LGJPanelImagen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-        getContentPane().setLayout(new java.awt.GridLayout());
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         panelContenedor.setBackground(new java.awt.Color(204, 255, 255));
         panelContenedor.setMinimumSize(new java.awt.Dimension(930, 600));
@@ -43,33 +46,36 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         panelContenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Bienvenido a nuestra remedial");
         panelContenedor.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
-        jPanel1.setPreferredSize(new java.awt.Dimension(500, 400));
+        PanelImagen.setBackground(new java.awt.Color(255, 255, 255));
+        PanelImagen.setMinimumSize(new java.awt.Dimension(500, 400));
+        PanelImagen.setPreferredSize(new java.awt.Dimension(500, 400));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 408, Short.MAX_VALUE)
+        javax.swing.GroupLayout PanelImagenLayout = new javax.swing.GroupLayout(PanelImagen);
+        PanelImagen.setLayout(PanelImagenLayout);
+        PanelImagenLayout.setHorizontalGroup(
+            PanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 338, Short.MAX_VALUE)
+        PanelImagenLayout.setVerticalGroup(
+            PanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        panelContenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 410, 340));
+        panelContenedor.add(PanelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 500, 400));
 
         btnImagen.setBackground(new java.awt.Color(102, 204, 255));
         btnImagen.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        btnImagen.setForeground(new java.awt.Color(0, 0, 0));
         btnImagen.setText("Abrir imagen");
         btnImagen.setToolTipText("");
-        panelContenedor.add(btnImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, -1, -1));
+        btnImagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImagenActionPerformed(evt);
+            }
+        });
+        panelContenedor.add(btnImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, -1, -1));
 
         lGJPanelImagen1.setImagen(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tokito.png"))); // NOI18N
 
@@ -91,6 +97,21 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImagenActionPerformed
+        PanelPrincipal imagen = new PanelPrincipal();
+        AbrirPanel(imagen);
+    }//GEN-LAST:event_btnImagenActionPerformed
+
+    
+    private void AbrirPanel(JPanel p){
+    p.setSize(659, 600);
+    p.setLocation(0,0);
+    PanelImagen.removeAll();
+    PanelImagen.add(p, BorderLayout.CENTER);
+    PanelImagen.revalidate();
+    PanelImagen.repaint();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -127,9 +148,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelImagen;
     private javax.swing.JButton btnImagen;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private components.LGJPanelImagen lGJPanelImagen1;
     private javax.swing.JPanel panelContenedor;
     // End of variables declaration//GEN-END:variables
